@@ -1,0 +1,130 @@
+*{
+ margin:0;
+padding:0;
+box-sizing:border-box;
+position:relative;
+border:none;
+outline:none;
+font-family: "Arima", sans-serif;
+}
+@font-face{
+    font-family: "Amira";
+    src: url("./Arima-VariableFont_wght.ttf");
+}
+.grid-container{
+    padding: 12px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minMax(300px,1fr));
+    /* grid-template-rows: repeat(3 , 1fr); */
+    gap: 12px;
+    align-content: center;
+}
+.grid-item{
+    padding: 12px;
+    background-color: #121212;
+    color: #fbfbfb;
+}
+/* .big-item{
+    grid-area: 1/1/1 span/1 span;
+} */
+body{
+    min-height: 100svh;
+    display: grid;
+    grid-template-columns: 240px repeat(3 ,1fr);
+    grid-template-rows: 50px 1fr 50px;
+    grid-template-areas:
+    " nav nav nav nav"
+    " side main main main"
+    " side foot foot foot";
+}
+.navbar{
+    padding: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    color: #121212;
+    background-color: #fbfbfb;
+    border-bottom: 1px solid #12121232;
+    grid-area: nav;
+}
+.navbar nav{
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+aside{
+    grid-area: side;
+    padding: 12px;
+    background-color: #121212;
+    color: #fbfbfb;
+}
+.side-links{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 12px;
+}
+.side-links a {
+    color: #fbfbfb;
+}
+@media screen and (max-width:800px){
+    aside{
+        display: none;
+    }
+    body{
+        grid-template-columns: 1fr;
+        grid-template-areas: "nav" "main" "foot";
+    }
+}
+main{
+    grid-area: main;
+    padding: 12px;
+}
+h1{
+    color: #121212;
+    margin-bottom: 12px;
+}
+section{
+    display: grid;
+    gap: 12px;
+    grid-template-columns: repeat(auto-fill,minMax(300px,1fr));
+}
+
+.card{
+    color: #fbfbfb;
+    overflow: hidden;
+    border: 1px solid #12121232;
+}
+.card img{
+    width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1) rotate(0deg);
+  transition: transform 0.3s ease-in-out 0s;
+  /* animation: greyscale 4s 0s infinite alternate linear; */
+}
+/* @keyframes greyscale{
+ 0%{
+    filter:grayscale(0%)
+}
+100%{
+    filter:grayscale(100%)
+}
+} */
+.card img:hover{
+    transform: scale(1.2) rotate(6deg);
+}
+footer{
+    grid-area: foot;
+    background-color: #fbfbfb;
+    color: #121212;
+    padding: 12px;
+    text-align: center;
+    border-top: 1px solid #12121232;
+    gap: 4px;
+}
